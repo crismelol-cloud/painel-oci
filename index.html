@@ -135,11 +135,11 @@ function render(){
  let list=DATA.filter(o=>(fEsp==='Todas'||o.esp===fEsp));
  if(fQ){const q=fQ.toLowerCase();list=list.filter(o=>(o.cod+' '+o.nome+' '+o.esp+' '+o.cidrol).toLowerCase().includes(q));}
  document.getElementById('count').textContent=list.length+' OCI(s)';
- list.forEach(o=>{const c=document.createElement('div');c.className='card';c.onclick=()=>open(o);
+ list.forEach(o=>{const c=document.createElement('div');c.className='card';c.onclick=()=>openOCI(o);
   c.innerHTML=`<div class="cod">${o.cod}</div><div class="nm">${o.nome}</div>
   <div class="row"><span class="tag">${o.esp}</span><span>${o.valfed_f} <b style="color:var(--navy2)">·</b> ${o.valpau_f}</span></div>`;g.appendChild(c);});
 }
-function open(o){
+function openOCI(o){
  const ob=o.secs.filter(s=>s.classe==='Obrigatório'),op=o.secs.filter(s=>s.classe!=='Obrigatório');
  let rows=`<tr class="bandg"><td colspan="8">① OBRIGATÓRIOS — necessários para fechar a OCI</td></tr>`;
  ob.forEach(s=>rows+=`<tr class="ob"><td>${s.cod}</td><td>${s.nome}</td><td class="cl o">OBRIGATÓRIO${s.obs?`<br><span style="font-weight:400;font-size:10px;color:#7a5c00">${s.obs}</span>`:``}</td><td class="num" style="font-weight:800;color:#8a1500">${s.qe===undefined?"—":s.qe}</td><td class="num">${s.qm===undefined?"—":s.qm}</td><td style="font-size:11px">${s.cid||"—"}</td><td class="num">${s.sig_f}</td><td class="num">${s.pau_f}</td></tr>`);
