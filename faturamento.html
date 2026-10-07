@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guia de Faturamento OCI</title>
+<style>
+:root{--navy:#1F3864;--navy2:#305496;--bg:#f4f6fa;--card:#fff;--ink:#1a2233;--mut:#5a6478;--line:#e2e7f0;--lbl:#eef2f9;--green:#4b7a34;--greenbg:#e7f2e0;--amber:#FFF2CC;--amberh:#FFC000;--red:#C00000;}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1420;--card:#182031;--ink:#e8ecf4;--mut:#9aa6bd;--line:#2a3550;--lbl:#202a41;--greenbg:#24402a;}}
+*{box-sizing:border-box}body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.5}
+header{background:var(--navy);color:#fff;padding:18px 20px;position:sticky;top:0;z-index:5}
+header h1{margin:0;font-size:19px}header p{margin:5px 0 0;font-size:12.5px;opacity:.88}
+.wrap{max-width:900px;margin:0 auto;padding:16px}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:var(--lbl);border-radius:10px;padding:12px 14px;margin-bottom:16px;font-size:12.5px;font-weight:700;color:var(--navy2)}
+.flow span{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:5px 11px}
+.flow b{color:var(--mut);font-weight:700}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .flow{color:#9fc0ff}}
+.sec{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:14px;overflow:hidden}
+.sh{background:var(--navy);color:#fff;padding:11px 16px;font-size:15px;font-weight:700;display:flex;gap:10px;align-items:center}
+.sh .n{background:rgba(255,255,255,.2);width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;flex:none}
+.sb{padding:14px 16px}
+.step{display:flex;gap:11px;padding:9px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step .k{flex:none;min-width:150px;font-weight:700;color:var(--navy2);font-size:13px}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .step .k{color:#9fc0ff}}
+.step .v{font-size:13px}
+.step .v code{background:var(--lbl);padding:1px 6px;border-radius:5px;font-size:12.5px;font-weight:700}
+@media(max-width:620px){.step{flex-direction:column;gap:2px}.step .k{min-width:0}}
+.path{font-size:12px;color:var(--mut);background:var(--lbl);border-radius:6px;padding:7px 10px;margin:8px 0 2px}
+.warn{background:var(--amber);color:#7a5c00;border-radius:8px;padding:9px 13px;font-size:12.5px;font-weight:600;margin:10px 0 2px}
+.ok{background:var(--greenbg);border-radius:8px;padding:9px 13px;font-size:12.5px;margin:10px 0 2px}
+ul{margin:6px 0;padding-left:20px}li{margin:4px 0;font-size:13px}
+a{color:#1a5fb4;text-decoration:none;font-weight:600}a:hover{text-decoration:underline}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) a{color:#7db4ff}}
+footer{max-width:900px;margin:8px auto 28px;padding:0 16px;color:var(--mut);font-size:11px;line-height:1.6}
+@media print{header{position:static;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sh,.flow span,.warn,.ok{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head><body>
+<header><h1>Guia de Faturamento OCI — passo a passo</h1>
+<p>Programa Agora Tem Especialistas · Secretaria Municipal de Saúde de Franca/SP · base: Manual PMAE + Portarias SAES/MS</p></header>
+<div class="wrap">
+
+<div class="flow"><b>Fluxo:</b> <span>1. Ato normativo + habilitar no CNES</span> <b>→</b> <span>2. Serviços + NGC</span> <b>→</b> <span>3. Preencher a APAC</span> <b>→</b> <span>4. Alimentar o SIA</span> <b>→</b> <span>5. Programar na FPO</span> <b>→</b> <span>6. Apresentar / receber</span></div>
+
+<!-- 1 -->
+<div class="sec"><div class="sh"><span class="n">1</span>Ato normativo + habilitação no CNES (38.01)</div><div class="sb">
+<div class="step"><div class="k">Ato normativo local</div><div class="v">Publicar ato do gestor oficializando a habilitação dos estabelecimentos que compõem o PAR. É o que formaliza a habilitação descentralizada (Port. 1.640/2024, Art. 6º, §3º).</div></div>
+<div class="step"><div class="k">Habilitação 38.01</div><div class="v">Inserir no CNES a habilitação <code>38.01 – Programa Mais Acesso a Especialistas / Agora Tem Especialistas – Componente Ambulatorial</code>.</div></div>
+<div class="path">CNES → módulo <b>Estabelecimento</b> → aba <b>Básico</b> → sub-aba <b>Habilitações</b> → Pesquisar → selecionar 38.01 → preencher <b>Competência Inicial</b> e <b>Portaria (data)</b> → <b>Incluir</b> → <b>Gravar</b>. (Ignorar "Leitos SUS".)</div>
+<div class="step"><div class="k">Exportar</div><div class="v">Exportar as informações para o DATASUS, para compor a Base Nacional do CNES a partir da competência de inclusão.</div></div>
+<div class="warn">⚠ Só recebem a 38.01 os estabelecimentos do <b>PAR pactuado e homologado</b>. Pela NT 86/2026, o próprio ato de aprovação do PAR já basta para iniciar a habilitação — não é preciso o estabelecimento solicitar adesão.</div>
+</div></div>
+
+<!-- 2 -->
+<div class="sec"><div class="sh"><span class="n">2</span>Serviços Especializados + NGC no CNES</div><div class="sb">
+<div class="step"><div class="k">Serviços Especializados</div><div class="v">Registrar os serviços/classificações exigidos pelo rol da OCI (conferir no SIGTAP). Marcar o tipo: <b>Próprio</b>, <b>Terceiro</b> ou <b>Ambos</b>; Ambulatorial = SUS.</div></div>
+<div class="path">CNES → <b>Estabelecimento</b> → aba <b>Conjunto</b> → sub-aba <b>Serviços Especializados</b> → preencher Serviço, Classificação, Tipo, Ambulatorial → <b>Incluir</b>.</div>
+<div class="step"><div class="k">NGC (obrigatório)</div><div class="v">Instituir e registrar o <b>Núcleo de Gestão do Cuidado</b>: serviço <code>170 – Comissões e Comitês</code> + classificação <code>002 – Núcleo de Gestão do Cuidado (NGC)</code>, com ≥1 profissional (pref. enfermeiro/téc. enfermagem). Exigido de todo estabelecimento com 38.01 (Port. 1.640/2024, Art. 7º).</div></div>
+<div class="warn">⚠ Conferir a composição mínima de CBO de cada serviço/classificação: menu Relatórios → Operacionais → Serviço/Classificação por Grupo de CBO. CBO/serviço faltando = glosa no processamento.</div>
+</div></div>
+
+<!-- 3 -->
+<div class="sec"><div class="sh"><span class="n">3</span>Preencher a APAC — campo a campo</div><div class="sb">
+<div class="step"><div class="k">Nº de autorização</div><div class="v">5º dígito <b>obrigatoriamente "7"</b> → máscara <code>UF AA 7 0000000 / Y</code> (ex.: SP, 2026 → <code>3526 7 0000000/Y</code>).</div></div>
+<div class="step"><div class="k">Início da Validade</div><div class="v">Data de realização do <b>1º procedimento</b> da OCI (não a data de autorização).</div></div>
+<div class="step"><div class="k">Fim da Validade / prazo</div><div class="v">Dentro do prazo da OCI (3 competências; oncologia 2). Se o principal tiver o atributo <b>054 — APAC validade fixa 2 competências</b>, máx. 2 competências.</div></div>
+<div class="step"><div class="k">Tipo de APAC</div><div class="v"><b>3</b> = Única (não admite APAC de continuidade; só pode ser apresentada uma vez).</div></div>
+<div class="step"><div class="k">Identificação</div><div class="v"><b>CPF obrigatório</b> (exceto indígena → CNS) — Port. 2.723/2025.</div></div>
+<div class="step"><div class="k">Procedimento principal</div><div class="v">Um procedimento do <b>Grupo 09</b>. CBO/CNS do executante = médico responsável pela avaliação diagnóstica.</div></div>
+<div class="step"><div class="k">Secundários</div><div class="v">Mín. <b>2</b>, sendo 1 a consulta (<code>03.01.01.007-2</code>) ou teleconsulta (<code>03.01.01.030-7</code>) e o outro <b>diferente</b> da consulta; + os obrigatórios da compatibilidade. Informar CBO e quantidade de cada.</div></div>
+<div class="step"><div class="k">Valor</div><div class="v">Secundários com <b>valor zerado</b> (regra 0009); o valor total da APAC = valor do principal.</div></div>
+<div class="step"><div class="k">Caráter de atendimento</div><div class="v"><b>01 – Eletivo</b>.</div></div>
+<div class="step"><div class="k">Motivo de saída</div><div class="v">1.1 Alta curado · 1.2 Alta melhorado · 1.4 Alta a pedido · 1.5 Alta c/ previsão de retorno · 4.1/4.2/4.3 óbito.</div></div>
+<div class="step"><div class="k">Data de saída</div><div class="v">Data do <b>último</b> procedimento da OCI; não pode ultrapassar o fim da validade da APAC.</div></div>
+<div class="step"><div class="k">Oncologia (09.01)</div><div class="v">Se o secundário "Exige data do resultado diagnóstico de Neoplasia": preencher <b>Data diagnóstico cito/histopatológico</b> + <b>CID Principal</b> (CID Secundário opcional). Secundários com atributo <b>040</b> também vão ao <b>SISCAN</b>.</div></div>
+<div class="step"><div class="k">Secundário por terceiro</div><div class="v">Informar o <b>CNES Terceiro</b> + CBO do profissional (vinculado ao terceiro). Tecla <code>Ins</code> para incluir cada secundário.</div></div>
+<div class="ok">Mínimo para a OCI fechar: <b>2 secundários</b>, sendo 1 consulta/teleconsulta + todos os obrigatórios da OCI. Veja o "mínimo para fechar" de cada OCI no painel.</div>
+</div></div>
+
+<!-- 4 -->
+<div class="sec"><div class="sh"><span class="n">4</span>Alimentar o SIA</div><div class="sb">
+<div class="step"><div class="k">Registro</div><div class="v">A produção da OCI é informada no <b>SIA</b> via APAC (uma APAC por OCI).</div></div>
+<div class="step"><div class="k">Importar CNES</div><div class="v">Importar o <b>TXT processamento do CNES</b> + o arquivo <b>"Terceiros Brasil"</b> (quando houver secundário terceirizado).</div></div>
+<div class="path">SIA → menu <b>Cadastro</b> → <b>IMP. TXT CNES E TERC. BRASIL</b>. O "Terceiros Brasil" é baixado no site do CNES → "Arquivos da Aplicação".</div>
+<div class="warn">⚠ Não registrar em <b>duplicidade</b> no BPA-I/AIH o que já foi lançado na APAC (exceção: SISCAN). Procedimentos fora do programa → usar <b>BPA-I</b>, evitar BPA-C.</div>
+</div></div>
+
+<!-- 5 -->
+<div class="sec"><div class="sh"><span class="n">5</span>Programação na FPO</div><div class="sb">
+<div class="step"><div class="k">O que programar</div><div class="v"><b>Todos</b> os procedimentos da OCI — principal <b>e</b> secundários — devem estar programados na FPO (programação física).</div></div>
+<div class="step"><div class="k">Em qual aba</div><div class="v">Aba <b>FAEC</b> da FPO (regra 0012, Port. 2.630/2025), desde a competência mar/2025 — mesmo os secundários zerados. O SIA zera o valor dos secundários no processamento.</div></div>
+<div class="warn">⚠ Secundário realizado <b>fora</b> do PMAE continua financiamento <b>MAC</b> → programar na aba MAC. Secundário faltando na FPO FAEC = glosa.</div>
+</div></div>
+
+<!-- 6 -->
+<div class="sec"><div class="sh"><span class="n">6</span>Conclusão, glosa e BPA-I</div><div class="sb">
+<div class="step"><div class="k">Concluiu</div><div class="v">OCI com os obrigatórios + no prazo → APAC paga como OCI (valor do principal), FAEC.</div></div>
+<div class="step"><div class="k">Não concluiu</div><div class="v">Faltou obrigatório ou passou do prazo → <b>não paga como OCI (glosa)</b>; o realizado pode ir a <b>BPA-I avulso</b>, pelo valor unitário (Port. 1.640/2024, §5º).</div></div>
+</div></div>
+
+</div>
+<footer>
+<b>Fontes:</b>
+<a href="https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/guias-e-manuais/2024/manual-pmae-registro-da-producao-controle-e-avaliacao.pdf" target="_blank" rel="noopener">Manual PMAE — Registro da Produção, Controle e Avaliação</a> ·
+<a href="https://www.in.gov.br/web/dou/-/portaria-saes/ms-n-1640-de-7-de-maio-de-2024-558531444" target="_blank" rel="noopener">Port. SAES/MS 1.640/2024</a> (CNES 38.01, NGC 170/002, ato normativo, BPA-I §5º) ·
+<a href="https://www.in.gov.br/en/web/dou/-/portaria-saes/ms-n-2.630-de-6-de-marco-de-2025-616508590" target="_blank" rel="noopener">Port. SAES/MS 2.630/2025</a> (FPO/FAEC — regra 0012) ·
+<a href="https://www.in.gov.br/en/web/dou/-/portaria-saes/ms-n-2.331-de-10-de-dezembro-de-2024-601118253" target="_blank" rel="noopener">Port. SAES/MS 2.331/2024</a> (obrigatórios/conclusão, Art. 7º) ·
+<a href="https://www.in.gov.br/web/dou/-/portaria-saes/ms-n-2.723-de-31-de-marco-de-2025-621361266" target="_blank" rel="noopener">Port. SAES/MS 2.723/2025</a> (CPF).
+<br>Material de apoio operacional. A legislação do PATE muda com frequência — confirmar a regra vigente na competência (SIGTAP; gov.br → Agora Tem Especialistas → Legislação) antes de decisão de faturamento.
+</footer>
+</body></html>
