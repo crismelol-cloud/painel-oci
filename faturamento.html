@@ -68,7 +68,6 @@ footer{max-width:900px;margin:8px auto 28px;padding:0 16px;color:var(--mut);font
 <div class="step"><div class="k">Caráter de atendimento</div><div class="v"><b>01 – Eletivo</b>.</div></div>
 <div class="step"><div class="k">Motivo de saída</div><div class="v">1.1 Alta curado · 1.2 Alta melhorado · 1.4 Alta a pedido · 1.5 Alta c/ previsão de retorno · 4.1/4.2/4.3 óbito.</div></div>
 <div class="step"><div class="k">Data de saída</div><div class="v">Data do <b>último</b> procedimento da OCI; não pode ultrapassar o fim da validade da APAC.</div></div>
-<div class="step"><div class="k">Oncologia (09.01)</div><div class="v">Se o secundário "Exige data do resultado diagnóstico de Neoplasia": preencher <b>Data diagnóstico cito/histopatológico</b> + <b>CID Principal</b> (CID Secundário opcional). Secundários com atributo <b>040</b> também vão ao <b>SISCAN</b>.</div></div>
 <div class="step"><div class="k">Secundário por terceiro</div><div class="v">Informar o <b>CNES Terceiro</b> + CBO do profissional (vinculado ao terceiro). Tecla <code>Ins</code> para incluir cada secundário.</div></div>
 <div class="ok">Mínimo para a OCI fechar: <b>2 secundários</b>, sendo 1 consulta/teleconsulta + todos os obrigatórios da OCI. Veja o "mínimo para fechar" de cada OCI no painel.</div>
 </div></div>
@@ -76,9 +75,9 @@ footer{max-width:900px;margin:8px auto 28px;padding:0 16px;color:var(--mut);font
 <!-- 4 -->
 <div class="sec"><div class="sh"><span class="n">4</span>Alimentar o SIA</div><div class="sb">
 <div class="step"><div class="k">Registro</div><div class="v">A produção da OCI é informada no <b>SIA</b> via APAC (uma APAC por OCI).</div></div>
-<div class="step"><div class="k">Importar CNES</div><div class="v">Importar o <b>TXT processamento do CNES</b> + o arquivo <b>"Terceiros Brasil"</b> (quando houver secundário terceirizado).</div></div>
-<div class="path">SIA → menu <b>Cadastro</b> → <b>IMP. TXT CNES E TERC. BRASIL</b>. O "Terceiros Brasil" é baixado no site do CNES → "Arquivos da Aplicação".</div>
-<div class="warn">⚠ Não registrar em <b>duplicidade</b> no BPA-I/AIH o que já foi lançado na APAC (exceção: SISCAN). Procedimentos fora do programa → usar <b>BPA-I</b>, evitar BPA-C.</div>
+<div class="step"><div class="k">Importar CNES</div><div class="v">Importar o <b>TXT processamento do CNES</b> + o arquivo <b>"Terceiros Brasil"</b>.</div></div>
+<div class="path">SIA → menu <b>Cadastro</b> → <b>IMP. TXT CNES E TERC. BRASIL</b>.</div>
+<div class="warn">⚠ Não registrar em <b>duplicidade</b> no BPA-I o que já foi lançado na APAC.</div>
 </div></div>
 
 <!-- 5 -->
