@@ -13,7 +13,7 @@
 'use strict';
 
 const PREFIXO = 'painel-oci-';
-const VERSAO  = '2026-11-02.1';
+const VERSAO  = '2026-11-02.2';
 const CACHE   = PREFIXO + VERSAO;
 const LIMITE_REDE = 3500; // ms de espera máxima pela rede nas páginas
 
